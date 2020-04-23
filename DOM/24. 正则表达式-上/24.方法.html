@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>24.方法</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			let reg1 = /ab/g;
+			let str1 = "abababababababababab"
+			console.log(reg1.lastIndex);
+			console.log(reg1.exec(str1));
+			console.log(reg1.lastIndex);
+
+			/* test	检索字符串中指定的值。返回 true 或 false。 */
+			document.write(reg1.test(str1));
+
+			/* 字符串的方法 */
+			
+			/* search	检索与正则表达式相匹配的值。与indexOf神似 */
+			var str2 = "Visit W3School!"
+			document.write(str2.search(/W3School/));   //6
+			
+			/* match	找到一个或多个正则表达式的匹配。返回arr */
+			document.write(str1.match(reg1));
+			
+			/* 替换 */
+			var str = "Welcome to Microsoft! "
+			str = str + "<br/>We are proud to announce that Microsoft has "
+			str = str + "<br/>one of the largest Web Developers sites in the world."
+			document.write(str.replace(/Microsoft/g, "W3School"));
+			
+			/* 分割字符 */
+			var str = "How are you doing today?"
+			document.write(str.split(" ") + "<br />")
+			document.write(str.split("") + "<br />")
+			document.write(str.split(" ", 3))
+		</script>
+	</body>
+</html>

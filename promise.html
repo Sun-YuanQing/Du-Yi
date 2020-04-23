@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//5、 手写一个promise
+
+			const promise = new Promise((resolve, reject) => {
+				resolve('success');
+
+			});
+			promise.then((res) => {
+				console.log('then:', res);
+			}).catch((err) => {
+				console.log('catch:', err);
+			})
+			//---------------Promise.all---
+
+			function fun1(num = -1) {
+
+				// 在fun1中返回一个promise对象
+				return new Promise(function(resolve, reject) {
+					// 为了体现是异步接口，这里使用一个定时器，延迟3秒
+					setTimeout(resolve, 3000, 'fun1');
+				})
+			};
+
+			function fun2(num2 = 200) {
+				// 在fun2中也返回一个promise对象
+				return new Promise(function(resolve, reject) {
+					// 为了和fun1区分开来，fun2延迟1秒
+					setTimeout(resolve, 1000, 'fun2');
+				})
+			}
+			// 由于fun1和fun2是方法，所以使用fun1()执行该方法
+			Promise.all([fun1(), fun2()]).then(function(result) {
+				console.log(result) // 输入应该为 ['fun1','fun2']
+			})
+		</script>
+	</body>
+</html>

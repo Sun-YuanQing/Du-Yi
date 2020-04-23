@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>原型</title>
+	</head>
+	<body>
+		<script type="text/javascript" charset="utf-8">
+		
+			
+			function unique() {
+				
+				var temp = {
+			
+				}
+				arr = [];
+				var len = this.length;
+				for (var i = 0; i < len; i++) {
+					console.log('temp[this[i]]----' + temp[this[i]])
+					if (!temp[this[i]]) {
+						temp[this[i]] = '1';
+						arr.push(this[i]);
+						console.log('this[i]---' + this[i])
+					}
+				}
+				return {
+					arr,
+					temp
+				};
+			}
+			function p(){
+			     
+			}
+			var obj={
+				unique
+			}
+			//p.__proto__=obj;
+			var str="rtytr";
+			
+			console.log(unique.call(str));
+			console.log(p.__proto__);
+		</script>
+
+
+	</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>闭包精细版</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var x = 1;
+			/* ()里面必须是表达式,声明会消失 */
+			if (function f() {}) {
+				/* typeof undfind  输出的是string */
+				x += typeof f;
+			}
+			/* 1undefined */
+			console.log(x)
+		</script>
+	</body>
+</html>

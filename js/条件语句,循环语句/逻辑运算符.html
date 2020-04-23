@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>逻辑运算符</title>
+	</head>
+	<body>
+
+		<script type="text/javascript">
+			/* && */
+			var u = 6;
+			document.write(1 && 'dfgh' && (function ghfj() { u = 7; return false; })() && 5)
+			document.write(u);
+			/* || */
+			var ll = 0 || false || undefined || null || ['\tll', 11]
+			document.write(ll);
+			var arr = [undefined, null, NaN,[0], "", 0, false]
+			arr.forEach(function(item, i) {
+				console.log((item == false) + '---' + i)
+			})
+
+			document.write(undefined == false);
+			document.write(null == false);
+			document.write(NaN==false);
+			document.write([] == false);
+			document.write("" == false);
+			document.write(0 == false);
+			document.write(false == false);
+		</script>
+	</body>
+</html>

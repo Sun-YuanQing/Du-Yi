@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>测试1</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str="str";
+			function fun (){
+				str1="str1";
+				var str2="str2";
+			}
+			fun()
+			delete str;  //不能删除不可配置的变量
+			console.log(str);
+			console.log(str1);  //str1可delete删除,但是console就会报错
+			console.log(str2);//Uncaught ReferenceError: str2 is not defined at
+			
+		</script>
+	</body>
+</html>

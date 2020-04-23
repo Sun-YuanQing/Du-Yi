@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 外部样式 -->
+		<link rel="stylesheet" type="text/css" href="csss.css"/>
+	    <!-- 页面样式 -->
+		<style type="text/css">
+			/* 7个级别8个写法 */
+			/* !important */
+			/* 1.行内样式 */
+			/* 2.id选择器 */
+			#span1{
+				font-weight: bold!important ;  /* 加粗*/
+			}
+			/* 3.类选择器||属性选择器(id,id="span1") */
+			.div_{
+				background: yellow; 
+			}
+			[class="div_"]{
+				font-size: 10px;
+			}
+			/* 4.标签选择器 */
+			span{
+				color: #ccc;
+			}
+			/* 5.通配符 */
+			*{
+				margin-left: 50px;
+			}
+			/* 6.外部样式 */
+		</style>
+	</head>
+	<body>
+		<span id="span1">
+			1.id选择器
+		</span>
+		<div class="div_" >
+			2.类选择器 
+		</div>
+		<span>3.标签选择器</span>
+		
+	</body>
+</html>

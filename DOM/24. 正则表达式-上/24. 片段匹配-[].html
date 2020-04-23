@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>24. 片段匹配-[]</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/* 匹配连贯的三位 */
+			let reg = /[1234567890][1234567890][1234567890]/g;
+			let str = "12309u8723201sdghdfg";
+			/* 返回数组 */
+			console.log(str.match(reg)) /* ["123", "987"] */
+			/* ["123"] */
+			/* [1234567890]中的1[1234567890]中的2[1234567890]中的3 */
+			/* ["987"] */
+			/* [1234567890]中的9[1234567890]中的8[1234567890]中的7 */
+			let reg0 = /[0-9][cd][d]/g;
+			let str0 = "ab1cd";
+			/* 返回数组 */
+			console.log(str0.match(reg0))
+			/* 查找任何不在方括号之间的字符。 */
+			let reg1 = /[^a][^b]/g;
+			let str1 = "ab1cd";
+			/* 返回数组 */
+			console.log(str1.match(reg1)) /* ["b1", "cd"] */
+			/* (red|blue|green)	查找任何指定的选项。 */
+			let reg2 = /(abc|b1c)/g;
+			let str2 = "ab1cd";
+			/* 返回数组 */
+			console.log(str2.match(reg2)) /* ["b1c"] */
+			let reg3 = /(abc|b1c)[0123]/g;
+			let str3 = "ab1c0";
+			/* 返回数组 */
+			console.log(str3.match(reg3)) /* ["b1c0"] */
+			let reg4 = /ab1c/g;
+			let str4 = "ab1c0";
+			/* 返回数组 */
+			console.log(str4.match(reg4)) /* ["ab1c"] */
+		</script>
+	</body>
+</html>

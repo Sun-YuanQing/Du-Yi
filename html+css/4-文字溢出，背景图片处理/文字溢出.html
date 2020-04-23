@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>文字溢出</title>
+		<style type="text/css">
+			._ospan{
+				width: 200px;
+				border: 1px #0A98D5 solid;
+				overflow:auto;/* 溢出滚动条 */
+				
+			}
+		</style>
+	</head>
+	<body>
+		1.单行点<br>
+		 width: 300px;<br>
+		 white-space:nowrap;  &nbsp;&nbsp;&nbsp;&nbsp;【space空间：nowrap禁止文字自动换行】<br>
+		 overflow: hidden;     &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;【flow流动： 隐藏的】<br>
+		 text-overflow: ellipsis;  &nbsp;&nbsp;&nbsp;&nbsp;【溢出部分省略符号】<br>
+		<div style="width: 300px;
+		 white-space:nowrap ;
+		 overflow: hidden;
+		 text-overflow: ellipsis;
+		 border: #FF4400 1px solid;">单行点--文字溢出三件套省略符号省略符号省略符号省略符号省略符号省略符号</div>
+		 
+		 <p></p>
+		 1.三行 注意高度行高比例<br>
+		  width: 300px;height: 60px;line-height: 20px;<br>
+		  overflow: hidden;     &nbsp;&nbsp;&nbsp;&nbsp;【flow流动： 隐藏的】<br>
+		 <div style="width: 300px;height: 60px;line-height: 20px;
+		  overflow: hidden;
+		  border: #FF4400 1px solid;">三行点不好实现-是通过请求的传参(多少文字会溢出)-文字溢出三件套文字溢出三件套文字溢出三件套文字溢出三件套文字溢出三件套</div>
+	<br>
+	._ospan{<br>
+				width: 200px;<br>
+				border: 1px #0A98D5 solid;<br>
+				overflow:auto;/* 溢出滚动条 */<br>
+				
+			}<br>
+	<div class="_ospan">
+		dfghdfghdfghdfghdfghdfghdfghdfgh
+	</div>
+	<script type="text/javascript">
+		console.log('')
+	</script>
+	
+	
+	</body>
+</html>

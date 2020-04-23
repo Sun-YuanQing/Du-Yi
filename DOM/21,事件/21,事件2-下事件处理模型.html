@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>21,事件1-上</title>
+		<style type="text/css">
+		.wrapper{
+			width:300px;
+			height:300px;
+			background-color: red;
+		}
+		.content{
+			width:200px;
+			height:200px;
+			background-color: green;
+		}
+		.box{
+			width:100px;
+			height:100px;
+			background-color: orange;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="content">
+				<div class="box"></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		var wrapper=document.getElementsByClassName("wrapper")[0];
+		var content=document.getElementsByClassName("content")[0];
+		var box=document.getElementsByClassName("box")[0];
+		/* true是事件捕获 */
+		wrapper.addEventListener("click",function(){
+			console.log("wrapper");
+		},false);
+		content.addEventListener("click",function(){
+			console.log("content");
+		},false);
+		box.addEventListener("click",function(){
+			console.log("box");
+		},false);
+		
+			
+		</script>
+	</body>
+</html>

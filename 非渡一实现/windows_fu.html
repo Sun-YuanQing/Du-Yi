@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+	</head>
+	<script>
+		
+			(function(w) {
+				w.listenerList = new Set();
+				const _cache = w.addEventListener;
+				const handler = {
+					apply: (target, tagbinding, args) => {
+						target();
+						listenerList.add(args[0]);
+						Reflect.apply(_cache, w, args);
+					}
+				}
+				w.addEventListener = new Proxy((eventname, fu) => {
+					console.log(22)
+				}, handler)
+			})(window)
+		window.addEventListener('resize', function(argument) {
+			console.log(111)
+		})
+		window.addEventListener('resize', function(argument) {
+			console.log(111)
+		})
+		for (const val of listenerList) {
+			console.log(val)
+		}
+	</script>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>递归，预编译（下）</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/* Undefined,null,NaN不直接等于真假------[],””,0可以直接==false */
+			/*Undefined,null,NaN其中 (+null) 运算是0 其他NaN*/
+			/* (+Undefined)====nan */
+			if(1+null){document.write((+null)+'--'+(+NaN)+'--'+(+"")+'--'+(+undefined))}
+			
+		document.write('----练习题：(window.foo||(window.foo=“asc”))=='+(window.foo||(window.foo='asc')))
+		
+		
+		</script>
+	</body>
+</html>

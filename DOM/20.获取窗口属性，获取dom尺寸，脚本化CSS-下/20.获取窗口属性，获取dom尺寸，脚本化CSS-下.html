@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>20.获取窗口属性，获取dom尺寸，脚本化CSS-下</title>
+		<style type="text/css">
+			.div2{
+				width:6.25rem;
+				height:6.25rem;
+				background:#0FAEFF
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div2">
+			完全没用
+		</div>
+		<script type="text/javascript">
+			/* 获取元素的列表只读 */
+			var div= document.getElementsByTagName("div");
+		/* window.getComputedStyle(div,null).width *//* 报错 */
+		console.log(div.currentStyle)/* IE独有 */
+		function getStyle(elem,prop){
+			if(window.getComputedStyle){
+				return window.getComputedStyle(elem,"after")[prop];
+			}else{
+				return elem.currentStyle[prop];
+			}
+		}
+		</script>
+	</body>
+</html>

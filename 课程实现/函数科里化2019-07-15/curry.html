@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数科里化</title>
+		<style type="text/css">
+			#div1{
+				width:210px;
+				height:100px;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+		</div>
+		<button type="button" >按钮1</button>
+		<button type="button" >按钮2</button>
+		<button type="button" >按钮3</button>
+		<button type="button" >按钮4</button>
+		<!--  --><!-- <script type="text/javascript" src="curry.js"></script> -->
+		<script type="text/javascript">
+			/* var f1 =curry(function(){},3);
+			console.log(f1(2,3)); */
+			/* 绑定事件 */
+			var btns = document.querySelectorAll('button');
+			var div =document.querySelector("div")
+			for(var i=0;i<btns.length;i++){
+				btns[i].addEventListener("click", clickHandler, false)
+			}
+			
+				function curry(_fn){
+				var arr =[];
+				var fn =_fn;
+				return function (item){
+					if(item){
+						if(arr.indexOf(item) > -1 ){
+							arr.splice(arr.indexOf(item),1) ;
+						} else{
+							// arr = arr.concat(Array.prototype.slice.call(arguments));
+							arr.push(item)
+						}
+						fn.apply(null,arr);
+						 
+						 return;
+					}
+					 fn.apply(null.arr);
+				}
+			}
+					
+			function setDivBy(){
+				var arr = Array.prototype.slice.call(arguments);
+				var arrstr=[]; 
+				var str =arr.reduce(function (p1,p2){
+					arrstr.push(p2.textContent);
+					return p1+p2.textContent+">";
+					//表示连接空字符
+				},"");
+				if(arr.length==4){
+					div.style.background='red';
+					div.textContent = str;
+				}else{
+					div.style.background='';
+					div.textContent='请点亮四个按钮'
+				}
+				
+				console.log(arrstr);
+			} 
+			
+			var fn= curry(setDivBy);
+				
+			function clickHandler(e){
+				fn(this);
+			}
+			
+		
+		</script>
+	</body>
+</html>

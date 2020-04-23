@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。  你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
+
+//示例
+// 给定 nums = [2, 7, 11, 15], target = 9
+// 因为 nums[0] + nums[1] = 2 + 7 = 9
+// 所以返回 [0, 1]
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+//  var nums = [2, 7, 11, 15], target = 9;
+// var twoSum = function(nums, target) {
+// 	var max={}; 
+//       for(var i=0,len=nums.length;i<len;i++){
+// 		  var j=i+1
+// 		     if(j<len){
+// 				var num= nums[i]+nums[j];
+// 				 if(!max[num]){
+// 					max[num]=[i,j]
+// 				 } 
+// 			 }
+// 	  }
+// 	  console.log(max[target]);
+// };
+// twoSum(nums, target);
+// 
+//给定两个以字符串形式表示的非负整数 num1 和 num2，返回 num1 和 num2 的乘积，它们的乘积也表示为字符串形式。
+
+//示例
+//输入: num1 = "2", num2 = "3"
+//输出: "6"
+
+/**
+ * @param {string} num1
+ * @param {string} num2
+ * @return {string}
+ */
+var num1 = "2", num2 = "3"
+var multiply = function(num1, num2) {
+    // var numder1=parseInt(num1),numder2=parseInt(num2);
+	 var numder= (num1*num2).toString();
+	   console.log(numder,typeof numder);
+};
+multiply(num1, num2);
+
+//给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。
+
+//示例
+//例如，给定数组 nums = [-1，2，1，-4], 和 target = 1.
+//与 target 最接近的三个数的和为 2. (-1 + 2 + 1 = 2).
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+ var  nums = [-1,2,1,-4],  target = 1;
+var threeSumClosest = function (nums, target) {
+  var max={}; 
+  max.max=0;
+   max.min=0;
+    for(var i=0,len=nums.length;i<len;i++){
+		var l=i+1
+  	  var j=i+2
+	  
+  	     if(j<len){
+  			var num= nums[i]+nums[l]+nums[j];
+  			 if(!max[num]){
+  				max[num]=[i,l,j]
+  			 }
+			
+			 if(num > max.max){
+			 			 max.max=num;
+			 }else if(num < max.min){
+				  max.min=num;
+			 }
+  		 }
+		
+    }
+	
+    console.log(max);
+	
+};
+threeSumClosest(nums, target)
+		</script>
+	</body>
+</html>

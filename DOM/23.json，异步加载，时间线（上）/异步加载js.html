@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>异步加载js</title>
+		<!-- IE异步  不加defer会阻塞 -->
+		<!-- <script type="text/javascript" defer="defer" src="../dom.js"></script> -->
+		<!-- w3c 不加async会阻塞-->
+		<script type="text/javascript" async="async" src="../dom.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/* 封装兼容script。onload */
+			function script_onload(url, callBack) {
+				var script = document.createElement("script");
+				script.style = "text/javascript";
+
+				if (script.readyState) {
+					/* IE有状态码script.redyState="loading/complete/losded" */
+					script.onreadystatechange = function() {
+						if (script.readyState == "complete" || script, readyState == "loaded") {
+							console.log("IE加载createELement.js成功")
+							if(typeof(callBack)=="function"){
+								callBack();
+							}else{
+								eval(callBack)
+							}
+						}
+					}
+				} else {
+					/* w3c */
+					script.onload = function() {
+						console.log("W3C加载createELement.js完成")
+						if(typeof(callBack)=="function"){
+							callBack();
+						}else{
+							eval(callBack)
+						}
+					}
+				}
+				/* 防止没有触发onreadystatechange */
+				script.src = url;
+				document.body.appendChild(script);
+			}
+			/* 用法注意传参的方法！！！！使用被加载js的方法！！ */
+			script_onload("../createELement.js", function() {script_load_test()});
+			script_onload("../createELement.js", "script_load_test()");
+		</script>
+	</body>
+</html>

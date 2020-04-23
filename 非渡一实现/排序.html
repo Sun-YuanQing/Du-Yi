@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>排序</title>
+	</head>
+	<script>
+		var arr = [1, 100, 3, 5, 20, 9];
+		arr.sort(function(a, b) {
+			return a - b
+		})
+		console.log('升序：' + arr);
+		arr.sort(function(a, b) {
+			return b-a
+		})
+		console.log('降序：' + arr);
+		for (var i = 0; i < 5;i++) {
+			arr.sort(function(a, b) {
+				return Math.random() - 0.5
+			})
+			console.log('乱序：' + arr);
+		}
+		var str= "傲鹏伟业软件有限公司"
+		console.log('把字符倒过来：' + str);
+		console.log('好嘞：' + str.split("").reverse(",").join());
+		
+	
+		
+		
+
+	
+	</script>
+	<body>
+
+	</body>
+</html>

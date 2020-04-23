@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>标签嵌套规则</title>
+	</head>
+<style type="text/css">
+		.center1{
+			float: left;
+			border: #FF4400 3px solid;
+			
+		}
+		.center{
+			float: right;
+			width: 400px;
+			height: 500px;
+			border: #FF4400 3px solid;
+			
+		}
+	</style>
+	<body>
+		<div class="center1">
+			行级只能套行级<br>
+			a套a 除外<br>
+			块级套所有<br>
+			p套 div除外<br>
+			
+		</div>
+		<a href="#"><a href="#"></a></a>
+		<br>
+		<p>
+			<div ></div>
+		</p>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>14.数组去重，习题，答疑复习（上）</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var template = {
+				'[object Array]': 'Array',
+				'[object Object]': 'object',
+				'[object Numder]': 'Numder',
+				'[object Boolean]': 'Boolean',
+				'[object String]': 'String'
+			}
+			/* 1.分类    原始值 引用值 */
+			/* 2.区分引用值 */
+			function type(target) {
+				if (typeof(target) == "object") {
+					var str = Object.prototype.toString.call(target);
+					return str + '----' + target;                     // 数组// 对象// 包装类
+				} else {
+					return typeof(target) + '----' + target;
+				}
+			}
+			console.log("----------原始值----------")
+			console.log(type(123))
+			console.log(type('"123"'))
+			console.log(type(true))
+			console.log(type(undefined))
+			console.log(type(null))
+			console.log("--------------------")
+			console.log(type(new Number(123)))
+			console.log(type(new String('"123"')))
+			console.log("----------引用值----------")
+			console.log(type([1, 2]))
+			console.log(type({}))
+			console.log(type(function() {}))
+		</script>
+	</body>
+</html>

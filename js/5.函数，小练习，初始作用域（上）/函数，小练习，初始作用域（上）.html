@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>函数，小练习，初始作用域（上）</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var fu=function(a,b){
+				a=2;
+			    arguments[0]='a!=2---';
+			   document.write(JSON.stringify(arguments)+"----")
+			   document.write(arguments.length+"-------")
+				document.write(arguments.length<=0?"没有实参":"有实参")
+				document.write(a+"---->>>>>")
+			}()
+			
+			var fu1=function(a,b){
+				a=2;
+			    arguments[0]='a!=2';
+				document.write(JSON.stringify(arguments))
+				document.write(a)
+			}
+			fu1(1,2);
+			
+			
+		</script>
+	</body>
+</html>

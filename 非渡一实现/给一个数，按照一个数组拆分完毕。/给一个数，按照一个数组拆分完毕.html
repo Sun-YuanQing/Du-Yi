@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>给一个数，按照一个数组拆分完毕</title>
+
+	</head>
+	<script src="../vue/Vue.js"></script>
+	<body>
+		<div id="app">
+			给一个数:{{scan}}<br>
+			按照一个数组:{{arr}}<br>
+			拆分完毕:{{list}}<br>
+			不用拆分返回原对象:{{return_scan}}
+		</div>
+
+		<script type="text/javascript">
+			var app = new Vue({
+				//管理边界
+				el: '#app',
+				//存放数据
+				data: function() {
+					return {
+						scan: {sheetQty:11},
+						arr: [1, 6, 3, 2, 5],
+						list: [],
+						return_scan: {}
+						
+					}
+				},
+				onload() {
+					console.log('--没有-')
+
+				}
+			})
+
+			function fu(arr,scan) {
+				var model={list:[],return_scan:{}}
+				var last_1 = scan.sheetQty;
+				last = last_1;
+				last_1 =100;
+				for (var i = 0; i < arr.length; i++) {
+					if (arr[i] == last) {
+						/* app._data.newarr1.push(app._data.numder); */
+						/* 添加到scan */
+						//last.sheetSta = 2;
+						//consts.entityState.modified;
+						model.return_scan = scan;
+						last=0;
+						break;
+					}
+				}
+				for (var i = 0; i <arr.length; i++) {
+					if (last == 0) {
+						break;
+					}
+					if (arr[i] >= last) {
+						model.list.push({
+							numQty: last,
+							num: 1
+						})
+						last = 0;
+					} else if (last > arr[i]) {
+						last = last - arr[i]
+						model.list.push({
+							numQty: arr[i],
+							num: 1
+						})
+					}
+				}
+				if (last > 0) {
+					model.list.push({
+						numQty: last,
+						num: 1
+					})
+				} 
+				return model;
+			}
+			var model=fu(app._data.arr,app._data.scan)
+		console.log(model)	
+		app._data.list=model.list;
+		app._data.return_scan=model.return_scan;
+		</script>  
+	</body>
+</html>

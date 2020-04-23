@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>实现insertAfter将一个元素插入到指定元素之后</title>
+	</head>
+	<body>
+		<div>
+			<span>span</span>
+			<!-- 注释 -->
+			<p>p</p>
+			<!-- 注释 -->
+			<strong>strong</strong>
+			<!-- 注释 -->
+			<em>em</em>
+			<!-- 注释 -->
+		</div>
+		<script type="text/javascript">
+			/* 查找上下兄弟元素节点 */
+			Element.prototype.retsibling = function(n) {
+				var a = this;
+				while (n) {
+					if (n > 0) {
+						// if(n&&this.nextElementSibling){   /* 下一个兄弟节点，ie不兼容*/
+						//  a=this.nextElementSibling;// }else{/* ie兼容*/
+						if (!a) {
+							a = null;
+							n = 0;
+							return a;
+						}
+						/* 1.找到一次，取反跳出，次数--，不是0继续*/
+						/* 2.a老是找不到dom,直到a为false也跳出 */
+						for (a = a.nextSibling; a && a.nodeType != 1; a = a.nextSibling);
+						n--;
+						// }
+					} else {
+						/* 1.找到一次，取反跳出，次数--，不是0继续*/
+						/* 2.a老是找不到dom,直到a为false也跳出 */
+						if (!a) {
+							a = null;
+							n = 0;
+							return a;
+						}
+						for (a = a.previousSibling; a && a.nodeType != 1; a = a.previousSibling);
+						n++;
+					}
+				}
+				return a;
+			}
+			/**
+			 * @description div.在元素后面插入元素(放到谁后面,要插入的元素放到后面) 
+			 * @param {String} a  DOM放到谁后面
+			 * @param {String} b  要插入的元素
+			 */
+			HTMLElement.prototype.insertAfter = function(a, b) {
+				/* 还要判断a是否在dom中存在,不然为null，执行div.appendChild(b);了*/
+				var _that = this.children;
+				var children_bool = false;
+				for (var i = 0; i < _that.length; i++) {
+					if (_that[i] == a) {
+						children_bool = true;
+					}
+				}
+				if (!children_bool) {
+					console.log(a)
+					return "元素不存在,上下文档中.";
+				}
+				
+				var a = a.retsibling(1);
+				if (!a) {
+					this.appendChild(b);
+				} else {
+					this.insertBefore(b, a);
+				}
+				return b;
+			}
+
+			var em = document.getElementsByTagName("em")[0];
+			var p = document.getElementsByTagName("p")[0];
+			var div = document.getElementsByTagName("div")[0];
+			var h3 = document.createElement("h3");
+			var br = document.createElement("br");
+			var hr = document.createElement("hr");
+			div.insertAfter()
+		</script>
+	</body>
+</html>

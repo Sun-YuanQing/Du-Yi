@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>伪元素-清除浮动</title>
+	</head>
+	<style type="text/css">
+		strong::before {
+			content: "before";
+		}
+
+		strong::after {
+			content: "after";
+		}
+
+		span::before {
+            border: 3px solid yellow;
+			position: absolute;
+			top: 30px;
+			width: 25px;
+			height: 25px;
+			content: "";
+		}
+
+		span::after {
+			content: "after";
+
+		}
+
+		.wrapper {
+			border: 5px solid yellow;
+		}
+        .wrapper:after{ /* 用伪元素清除浮动三件套*/
+			 clear: both;  /* 清除左右两边 */
+			 /* after行级元素clear生效必须变块级，就刚好产生了BFC，认识到了浮动的儿子就包裹了*/
+			 display:block;/* inline-block 效果更好*/
+			 content: "";
+		}
+		.content {
+			/*内层 浮动 */
+			float: left;
+			width: 6.25rem;
+			height: 6.25rem;
+			background: #000;
+			color: #fff;
+			
+		}
+		
+	</style>
+	<body>
+		1.伪元素有两个是[行级元素].<br>
+		2.存在每个元素里面，可以写样式控制.<br>
+		3.对于伪元素必需有的一个属性叫content.<br>
+		4.content只能用在伪元素里.
+		<strong>
+			伪元素
+		</strong>
+		<div >
+			<span>伪元素</span>
+		</div>
+		
+		<hr>
+		4.不影响元素结构可以用伪元素清除float,clear:both<br>
+		5.但是[只有块级元素才能清除float]要加display:block<br>
+		<div class="wrapper">
+			<div class="content">1</div>
+			<div class="content">2</div>
+			<div class="content">3</div>
+		</div>
+		
+
+
+	</body>
+</html>

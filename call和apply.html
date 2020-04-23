@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body><script>
+		//	4、 简述call和apply的应用 
+		var str="要拿的参数";
+		var obj={
+			fu:function (){
+				if(this.str){
+					console.log("call>>>>>>>>>>>>"+this.str);
+					
+				}else{
+					console.log("你会发现拿不到，因为this是指向调用它的对象，而obj没有str>>>>>>>>>>>>"+this.str);
+				}
+				
+			}
+		}
+		obj.fu();
+		
+		obj.fu.call(this,str);
+		//call,apply改变this指向传参列表不同
+		</script>
+	</body>
+</html>

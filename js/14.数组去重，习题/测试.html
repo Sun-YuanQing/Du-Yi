@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>字符串去重</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*1. typeof d()返回个什么？ */
+			var a = function d() {
+				return 23;
+			}
+			//	console.log(typeof d())
+			/* d()已声明赋值给a(),d()不存在 d is not defined at */
+			/* 2.题，字符串去重 */
+			var str = "dflixzjcverlijxcsicvjeeapccixz";
+			String.prototype.unique = function() {
+				var temp = {
+				}
+				arr = [];
+				var len = this.length;
+				for (var i = 0; i < len; i++) {
+					console.log('temp[this[i]]----'+temp[this[i]])
+                     if(!temp[this[i]]){
+						temp[this[i]]='1';
+						 arr.push(this[i]);
+						 console.log('this[i]---'+this[i])
+					 }
+				}
+				return {arr,temp};
+			}
+		var obj=str.unique();
+		console.log(obj);
+		var temp1="jj1gg2hh3uu4ii5"
+		console.log(temp1.__proto__);   //查看原型,“_”一般表示系统定义不要动
+		</script>
+	</body>
+</html>

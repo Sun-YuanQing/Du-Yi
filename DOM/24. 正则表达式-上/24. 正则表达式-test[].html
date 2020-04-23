@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>24. 正则表达式-test[]</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/* 第一种写法：/包含的字符/i忽视大小写（mgi） */
+			let reg=/abc/;
+			let str="regabcf";
+			/* 真假包含 */
+			console.log(reg.test(str))/* true */
+			
+			/* 第二种写法 包含*/
+			let str1="1abc1";
+			let reg1 =new RegExp("abc");
+			/* 真假包含 */
+			console.log(reg1.test(str1))/* true */
+			
+			/* 第三种写法：全局匹配 */
+			let str2="ab1abcab7ab0ab";
+			let reg2=new RegExp("ab","g");
+			/* 字符的方法 */
+			console.log(str2.match(reg2));/* 返回所有匹配到的字符转数组 */
+			
+			/*第五种写法 以a开头的包含换行 */
+			let reg3=/^a/m;
+			let reg4=new RegExp("^a","mg");
+			let str3="abc\na";
+			console.log(str3.match(reg4));/* 返回所有匹配到的字符转数组 */
+		</script>
+	</body>
+</html>

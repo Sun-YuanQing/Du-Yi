@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>父子选择器</title>
+		<style type="text/css">
+			/* 父子选择器/派生选择器 (右向左)*/
+			div span{
+				background: #FFFF00;
+			}
+			/* 直接子元素选择器 */
+			div > span{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<section><!-- h5 -->
+		<div >
+			<span>直接子元素选择器/父子选择器</span>
+			<strong>
+				<span>父子选择器</span>
+			</strong>
+		</div>
+		</section>
+	</body>
+</html>

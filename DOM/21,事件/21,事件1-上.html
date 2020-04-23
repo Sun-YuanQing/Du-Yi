@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>21,事件1-上</title>
+		<style type="text/css">
+			.div2 {
+				width: 6.25rem;
+				height: 6.25rem;
+				background: #0FAEFF
+			}
+
+			li {
+				width: 11.25rem;
+				height: 1.25rem;
+				background: rgb(235, 200, 8);
+				margin-top: 2px;
+				list-style: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div2"></div>
+		<p>练习li事件</p>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<script type="text/javascript">
+			/* 绑定多个事件 ，IE9不支持 */
+			let div = document.getElementsByTagName("div")[0];
+			div.addEventListener("click", function() {
+				console.log("a");
+			}, false)
+			div.addEventListener("click", function() {
+				console.log("b");
+			}, false)
+			/* IE绑定多个事件 */
+			// div.attachEvent("onclick",test);
+			// /* 只有ie多个事件同一函数 ，执行多次*/
+			//          div.attachEvent("onclick",test);
+			function test() {}
+			/* --------练习------ */
+			/* 给每个li加点击事件，顺序输出123456 */
+			var li = document.getElementsByTagName("li"),
+			len=li.length;
+			for (var i = 0; i < len; i++) {
+				(function(i) {
+					// li[i].addEventListener("click" ,function() {
+					// 	console.log(i);
+					// },false)
+					li[i].onclick = function() {
+						console.log(i);
+					}
+				}(i))
+			}
+		</script>
+	</body>
+</html>

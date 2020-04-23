@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>过滤器</title>
+	</head>
+	<script src="vue/Vue.js"></script>
+	<body>
+		<div class="" id="app">
+			{{arr}}</br>
+
+			过滤器：app._data.arr.filter(function(p,index) {
+			return p.nmuder == 3;
+			});</br>
+			返回：{{newarr1}}
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		var app = new Vue({
+			//管理边界
+			el: '#app',
+			//存放数据
+			data: function() {
+				return {
+					arr: [{
+						nmuder: 1
+					}, {
+						nmuder: 2
+					}, {
+						nmuder: 3
+					}, {
+						nmuder: 4
+					}, {
+						nmuder: 5
+					}],
+					newarr1: []
+				}
+			},
+			onload() {
+				console.log('--没有-')
+				
+			}
+		})
+		app._data.newarr1 = app._data.arr.filter(function(p, index) {
+			console.log('--index-' + index)
+			return p.nmuder == 3;
+		});
+	</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>事件移入移出</title>
+		<style type="text/css">
+			 .ccc{
+				color: rgb(200,200,200);
+			}
+			 .hhh{
+				color: rgb(42,42,42);
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" maxlength="40" value="请输入关键字"
+		 name="SerchKey" class="ccc"
+		  onfocus="if(this.value=='请输入关键字'){this.value='';
+		  this.className='hhh'}" 
+		  onblur="if(this.value==''){this.value='请输入关键字';
+		  this.className='ccc'}" autocomplete="off">
+		</div>
+		<script type="text/javascript">
+		var input = document.getElementsByTagName("input")[0];
+		input.oninput=function(e){
+			/* 输入就输出 */
+			console.log(this.value)
+		}
+		input.onchange=function(e){
+			/* 值一样不输出  */
+			console.log(this.value)
+		}
+		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<view class="search">
+  <view class="search-left">
+    <image src='/images/search.png'></image>
+    <input placeholder='搜素话题，问题或人' placeholder-class='search-placeholder'></input>
+  </view>
+  <view class="search-right">
+    <image src='/images/lighting.png'></image>
+  </view>
+</view>
+<!-- 内容-->
+<view class="feed-item">
+  <view class="feed-source">
+    <image class='avatar' src="/images/icon1.jpeg"></image>
+    <text :click="onclick">{{name}}赞了回答1</text>
+    <image class='item-more' src='/images/more.png'></image>
+  </view>
+  <!-- 内容,标题-->
+  <view class="feed-content">
+    <view class="question">今天发了个说说
+    </view>
+    <view class="answer-text">他们竟然不懂我的笑点，然后解释一大堆。
+    </view>
+  </view>
+  <!-- 内容,问题-->
+  <view class="answer-actions">
+    <text class='dot'>111赞同</text>
+    <text class='dot'>16评论</text>
+    <text>关注问题</text>
+  </view>
+
+</view>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Bar Chart</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-chartjs/3.4.2/vue-chartjs.min.js"></script>
+		<style>
+
+			body{			
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+			
+			#canvas{			
+				width:100%;
+				height:400px;
+			}
+			
+			p{
+			    font-size: 15px;
+				color: #555;
+			}
+			
+			p input{			
+			    margin-right:40px;
+				font-size: 14px;
+				line-height: 26px;
+				color: #666;
+				border: 1px solid #c5c3c3;
+				border-radius: 4px;
+				padding-left: 5px;
+				float:left;
+			}
+			
+			p span{
+			    float:left;
+			    display:block;
+			    line-height: 25px;
+			}
+			
+			p button{
+				display: inline-block;
+				padding: 3px 12px;
+				margin-bottom: 0;
+				font-size: 14px;
+				font-weight: 400;
+				cursor: pointer;
+				border: 1px solid transparent;
+				border-radius: 4px;
+			
+			}
+			
+			#currData,#currDataSort{
+			    word-wrap:break-word
+			}
+		
+		</style>
+
+	</head>
+	<body>
+
+		<p>
+			<span>随机数个数：</span>
+			<input id="size" value="20" type="range" min="1" max="150" />
+
+			<span>随机数n最大值：</span>
+			<input id="randomMax" value="1000" type="range" min="1" max="100000" />
+
+			<button onclick="initData()">初始化数据</button>
+			<button onclick="startSort()">开始排序</button>
+		</p>
+
+		<div id="canvasWrap">
+		</div>
+
+		<p id="currData"></p>
+		<p id="currDataSort"></p>
+
+		<script>
+			//个数
+			var size;
+			//随机数n最大值
+			var randomMax;
+			//标签项
+			var labels = [];
+			//数据项
+			var datas = [];
+			//Bar所需数据
+			var barChartData = null;
+
+			//加载完成
+			window.onload = function() {
+				initData();
+			}
+
+			//生成0到n之间的随机整数
+			function randomScalingFactor(n) {
+				return Math.round(Math.random() * n);
+			};
+
+			//初始化
+			function initData() {
+
+				//个数
+				size = document.getElementById("size").value;
+				//随机数n最大值
+				randomMax = document.getElementById("randomMax").value;
+				//标签项
+				labels = [];
+				//数据项
+				datas = [];
+
+				//初始化标签项和数据项
+				for (var i = 0; i < size; i++) {
+
+					labels.push(i);
+					datas.push(randomScalingFactor(randomMax));
+
+				}
+
+				//显示当前数据
+				document.getElementById("currData").innerHTML = "排序前顺序：" + datas;
+
+				//组装Bar所需数据
+				barChartData = {
+					labels: labels,
+					datasets: [{
+						fillColor: "rgba(151,187,205,0.5)",
+						strokeColor: "rgba(151,187,205,0.8)",
+						highlightFill: "rgba(151,187,205,0.75)",
+						highlightStroke: "rgba(151,187,205,1)",
+						data: datas
+					}]
+
+				}
+
+				drawCanvas();
+			}
+
+			//绘制画板
+			function drawCanvas() {
+
+				//新建画布
+				document.getElementById("canvasWrap").innerHTML = '<canvas id="canvas"></canvas>';
+
+				//获取画板
+				var ctx = document.getElementById("canvas").getContext("2d");
+
+				//绘制条形框
+				window.myBar = new Chart(ctx).Bar(barChartData, {
+					responsive: true,
+					animation: false
+				});
+
+				//显示当前数据
+				document.getElementById("currDataSort").innerHTML = "当前的顺序：" + datas;
+			}
+
+
+			//冒泡排序算法
+			function bubbleSort(arr) {
+				//数据长度
+				var length = arr.length;
+				//交换标识
+				var swapFlag = false;
+				//外循环,进行length-1趟比较
+				for (var i = 0; i < length - 1; i++) {
+					swapFlag = false;
+					//内循环，每趟进行 length - i -1 次比较
+					for (var j = 0; j < length - i - 1; j++) {
+						if (arr[j] > arr[j + 1]) {
+							//交换相邻元素
+							var temp = arr[j];
+							arr[j] = arr[j + 1];
+							arr[j + 1] = temp;
+							swapFlag = true;
+						}
+					}
+					//本趟未进行任何交换，说明排序已经完成，则跳出循环
+					if (!swapFlag) {
+						break;
+					}
+				}
+			}
+
+			//开始排序
+			function startSort() {
+
+				bubbleSort(datas);
+				//重新绘制
+				drawCanvas();
+
+			}
+		</script>
+
+	</body>
+</html>

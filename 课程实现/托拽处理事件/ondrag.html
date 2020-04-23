@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+			}
+
+			.demo {
+				width: 100px;
+				height: 50px;
+				background-color: #0FAEFF;
+				/* 设置定位style.left生效改变位置 */
+				position: relative;
+			}
+
+			.box1 {
+				width: 300px;
+				height: 300px;
+				border: 1px solid #0FAEFF;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 1.添加属性赋予元素可以被拖动能力 -->
+		<div class="demo" draggable="true"></div>
+		<!-- 2托拽是由两部分组成的 -->
+		<!-- 2.1托拽的元素   事件生命周期：dragstart drag dragend-->
+		<!-- 2.2目标元素  事件生命周期： dargenter dragover drop dragleave(离开)-->
+		<div class="box1"></div>
+		<script type="text/javascript">
+			var demo = document.getElementsByClassName("demo")[0];
+			var box = document.getElementsByClassName("box1")[0];
+			/* 开始 */
+			var startX = 0;
+			var startY = 0;
+			var dargdom=null;
+			demo.ondragstart = function(e) {
+				/* e是事件源对象 */
+				/* console.log(e) */
+				/* 鼠标样式不太兼容 */
+				/* ataTransfer:DataTransfer
+					dropEffect:"none"
+					effectAllowed:"uninitialized" */
+				/* 获取相对视口的鼠标位置 */
+				startX = e.clientX;
+				startY = e.clientY;
+                dargdom=this;
+			}
+			/* demo.addEventListener("dragstart",function(){}) */
+			/* 移动 */
+			demo.ondrag = function(e) {
+				/* console.log(e) */
+			}
+			/* 结束 */
+			demo.ondragend = function(e) {
+				/* console.log(e) */
+			 	/* 移动距离=当前距离-初始距离 */
+			 	var disX = e.clientX - startX;
+			 	var disY = e.clientY - startY;
+				this.style.left = this.offsetLeft + disX + "px";
+				this.style.top = this.offsetTop + disY + "px";
+			 }
+			/* 目标事件 */
+			/* 进入目标元素内 （鼠标进入）*/
+			box.ondragenter = function(e) {
+				console.log("ondragenter")
+			}
+			/* 目标元素内悬浮 （鼠标） */
+			box.ondragover = function(e) {
+				console.log("ondragover")
+				/* 阻止默认事件没有出发ondrop */
+				e.preventDefault();
+			}
+			/* 托拽离开目标*/
+			box.ondragleave = function(e) {
+				console.log("ondragleave")
+			}
+			box.ondrop = function(e) {
+				console.log("ondrop")
+				this.appendChild(dargdom);
+			}
+		</script>
+	</body>
+</html>

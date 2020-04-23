@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>测试</title>
+		<style type="text/css">
+			._ospan{
+				width: 200px;
+				border: 1px #0A98D5 solid;
+				overflow:auto;/* 溢出滚动条 */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="_ospan">
+			dfghdfghdfghdfghdfghdfghdfghdfgh
+		</div>
+	
+		<script type="text/javascript">
+			var x=1;
+			var y=2;
+			function show(){
+				var x=7;
+				return {
+					x:x,//一直是x:7,不会再变
+					fun:function (a,b){
+						console.log(x)
+						x=a+b; //指向原来的var x=7;  
+						console.log(x)
+						this.x=a+b;//x:x
+						this.y=a+b;//y:y
+						y=9;
+					}
+				}
+			}
+			var obj=show();
+			obj.fun(x,y);
+			document.write(obj.x)  //不变的x:7
+			document.write(x)   //全局x=1
+			
+			var t;
+			document.write(t)  //undefined
+			var m=0;
+			function Psern(){
+				var n=20;
+				this.n=9;
+				this.m=1;
+				this.fun=function(){
+					m=2;
+					this.m=3;
+					return {
+						m:4,
+						n:n,
+						nn:this.n
+					}
+				}
+				
+			}
+			var n=new Psern();
+			console.log(n)
+			
+		/* ------------------------------------- */	
+			var f=(function f(){
+				return '1';
+			},
+			function g(){
+				return 2;
+			})()
+			 console.log(typeof f) 
+			 name=222;
+			 var b={
+				 name:'111',
+				 sya:function(){
+					 function  f (){
+					 console.log(this.name)					 
+					 }
+					 f();
+				 }
+			 }
+			 b.sya();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>量词</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/* n表示变量，
+			   +表示重复1次到infinity{1, },
+			 *表示0到infinity{0, } 有匹配两罐，到没有会匹配空*/
+			/* n+ {1,Infinity} */
+			let reg = /\w+/g;
+			let str ="abc";
+			console.log(str.match(reg)); //["abc"]
+			/* n? {0,1} */
+			let reg1 = /\w?/g;
+			let str1 ="abc";
+			console.log(str1.match(reg1)); // ["a", "b", "c", ""]
+		    /* n{X} {3} 3个3个匹配*/
+		    let reg2 = /\w{3}/g;
+		    let str2 ="abc1238";
+		    console.log(str2.match(reg2));  //["abc", "123"]
+			 /* n{X,Y} {3,5} 3到5个,4也中, 能5个别3个,最少3个 */
+			let reg3 = /\w{3,5}/g;
+			let str3 ="123456789";
+			console.log(str3.match(reg3));  //["12345", "6789"]
+			/* n{X, }
+			   n{1, } === n+
+			   n{0, } === n* */
+			/* --------------------- */
+			/* n$  以什么结尾 */
+			let reg4 = /de$/g;/* 还会受m换行匹配 */
+			let str4 ="abcde";
+			console.log(str4.match(reg4)); //["de"]
+			/* ^n */
+			let reg5 = /^abc$/g; /* 开头结尾必须是同一个 */
+			let str5 ="abcabc";
+			console.log(str5.match(reg5)); //null
+			/* 题 */
+			let reg6 = /(^\d|\d$)/g; /* 首尾包含数字 */
+			let str6 ="abcabc0";
+			console.log(str6.match(reg6));//["0"]
+			/* 题 */
+			let reg7 = /^\d[\w\W]+\d$/g; /* 首尾都包含数字 */
+			let str7 ="1abcabc0";
+			console.log(str7.match(reg7));//["1abcabc0"]
+		</script>
+	</body>
+</html>

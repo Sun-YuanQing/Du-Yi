@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			ul {
+				list-style: none;
+				/* 取消样式 */
+			}
+
+			ul li {
+				font-weight: bold;
+				background: #557555;
+				border-radius: 8px;
+			}
+		</style>
+	</head>
+	<body>
+		<ol type="A" reversed="reversed" start="22">
+			<!-- 1/A/a/I/i --><!-- 倒序 --><!-- 开始 -->
+			<li>ol</li>
+			<li>li</li>
+			<li>li</li>
+			<li>li</li>
+			<li>li</li>
+			<li>li</li>
+			<li>li</li>
+			<li>li</li>
+			<li>li</li>
+			<li>li</li>
+		</ol>
+		<ul type="circle">
+			<li>ul</li>
+			<li>li</li>
+			<li>li</li>
+			<li>li</li>
+			<li>li</li>
+		</ul>
+		<!-- anchor锚点 -->
+		<!-- 超链接 -->
+		<!-- 发邮件 mailto:1182804933@qq.com -->
+		<!-- 打电话 -->
+		<!-- 协议限定符 javascript:var -->
+		<!-- target="_blank"新窗口打开 -->
+		<a href="mailto:1182804933@qq.com" target="_blank">1182804933@qq.com</a>
+		<img src="cv.pg" title="title" alt="alt找不到图片类型">
+		<!-- 发送目标 -->
+		<!-- 发送方式 -->
+		<form action="初级篇.html" method="get">
+			<!-- 单选 name相同-->
+			1.你的目标是什么？
+			<input type="radio" name="what" value="1" />
+			<input type="radio" name="what" value="2" checked="checked" />
+			<!-- 复选 --><br>
+			1.你的爱好是什么？
+			<input type="checkbox" name="like"  value="3" checked="checked" />
+			<input type="checkbox" name="fool"  value="4" /><br>
+			<!-- onfocus="" onblur="" -->
+			<!-- 类型，发送数据名，值 -->
+			data-name:<input type="text" name="data-name" value="sun" placeholder="cb" style="border: #557555 solid 1px;"/>
+			<br>data-password:<input type="password" name="data-password" value="" style="border: #557555  solid 1px;" />
+			<!-- 下拉列表 --><br>
+			
+			<select name="select_name">
+				<!-- 加value不加都行，取值不一样 -->
+				<option>value_str1</option>
+				<option>value_str2</option>
+				<option value="value_id_3">value_id_str3</option>
+				<option value="value_id_4">value_id_str4</option>
+			</select>
+			<input type="submit" value="提交" />
+			<!-- 初级篇.html?what=2&like=3&data-name=sun&data-password=123456&select_name=value_id_1 -->
+		</form>
+
+	</body>
+</html>

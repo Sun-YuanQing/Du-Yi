@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>17.dom选择器，节点类型</title>
+	</head>
+	<body>
+		<div>
+			<span>
+				<p></p>
+				</span>
+			<em></em>
+			<strong></strong>
+		</div>
+		<script type="text/javascript">
+			var span=document.getElementsByTagName("span")[0];
+			console.log(span);
+			console.log(span.children);
+		</script>
+	</body>
+</html>

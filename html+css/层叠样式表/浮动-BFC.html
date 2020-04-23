@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>浮动-BFC</title>
+	</head>
+	<style type="text/css">
+		.wrapper {
+			/*外层 BFC */
+			position: absolute; /* 默认是inline-block */
+			display: inline-block;/* block不建议，inline-block效果更好 */
+			/* float: left; */ /* 默认是inline-block */
+			/* overflow: hidden; */
+			border: 5px solid yellow;
+		} 
+
+		.content {
+			/*内层 浮动 */
+			float: left;
+			width:6.25rem;
+			height:6.25rem;
+			background:#000;
+			color: #fff;
+		}
+	</style>
+	<body>
+		1.没设float和BFC的块级元素是看不见浮动的.<br>
+		2.BFC能看见浮动，认识到了浮动的儿子就包裹了
+		<div class="wrapper">
+			<div class="content">1</div>
+			<div class="content">2</div>
+			<div class="content">3</div>
+		</div>
+		2.冷门知识：position: absolute;float默认把元素换成inline-block
+		<br>
+		
+	</body>
+</html>

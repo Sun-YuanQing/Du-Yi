@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Date倒计时-模拟多线程</title>
+		<script type="text/javascript" src="../dom.js"></script>
+	</head>
+	<body>
+	
+		<script type="text/javascript">
+			/* 【1.setInterval一直执行，除非clearInterval(timer)终止】 */
+			var date = new Date();
+			//console.log(date)
+			var s = date.getSeconds(); /* 获取当前的秒*/
+			var sss = s; /* 得到当前的秒，用来到计时对比*/
+			var ss = 3; /* 倒数几秒*/
+			s += ss; /* 在当前的秒数上加，倒数几秒*/
+			ss++; /* 为了更加直观先加一秒，减减之后从倒数几秒开始输出*/
+			var  obj={len:0,   //对比长度更新
+			arr:[]};
+			//date.setMinutes(32); /* 设将来的分 */
+			date.setSeconds(s); /* 设将来的秒 *//* 在当前的秒数上加，倒数几秒*/
+			/* 隔多久执行一次 */
+			var timer = setInterval(function() {
+				/* 当前时间减去未来时间>50毫秒 */
+				if (new Date().getTime() - date.getTime() > 50) {
+					//console.log(date)
+					//console.log(new Date())
+					clearInterval(timer);
+					//console.log(`${timer}被停止`)
+				} else {  /* 当前时间不大于将来*/
+					if (sss != new Date().getSeconds()) {  /* 当获取的秒数，不等于当前秒数*/
+						sss = new Date().getSeconds();
+						ss--;  /* 减去倒计时的秒*/
+						console.log(ss);   /* 输出倒计时秒*/
+						if(ss==1){
+							obj.arr.push("孙元清");
+						}
+						
+					}
+				}
+			}, 100)
+			var last=null;
+			setTimeout(function(){
+				last="好累啊...";
+				obj.arr.push(last);
+			},5000)
+			var timer1 = setInterval(function() {
+				if(ss==3){
+					console.log(`跑!`)
+				}else if(ss==1){
+					if(obj.len!=obj.arr.length){
+						obj.len=obj.arr.length;
+						console.log(`第${obj.arr.length}名:`+obj.arr[obj.arr.length-1]); 
+						
+					}
+					//console.log(`${timer1}被停止`)/* 可以模拟多线程 */
+					if(obj.arr.length==2){
+						console.log("比赛结束！！！"); 
+						clearInterval(timer1);
+					}
+				}
+					
+			
+			}, 100)
+		</script>
+	</body>
+</html>

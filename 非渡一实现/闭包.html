@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>闭包</title>
+	</head>
+	<body>
+		<script>
+			(function(w) {
+				w.onload = function() {
+					m_fu()
+				}
+
+				w.m_fu = function() {
+					console.log('2>>>' + i) //8length
+					console.log('3>>>>' + arr[j]) //5
+				}
+				var arr = [2, 10, 8, 3, 7, 6, 300, 5];
+				var j = 0;
+				for (var i = 0; i < arr.length; i++) {
+					var j = i;
+				}
+				console.log('1>>>>' + i) //8
+			})(window)
+
+			//	console.log(arr) //>>>>>>>>>>test.html:26 Uncaught ReferenceError: arr is not defined at test.html:26
+			//	console.log(i)//>>>>>>>Uncaught ReferenceError: i is not defined at test.html:27
+			m_fu();
+			//2>>>>8
+			//3>>>>5
+		</script>
+	</body>
+</html>

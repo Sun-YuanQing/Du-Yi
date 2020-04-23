@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>24.元字符</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*  */
+			let reg0 = /ab1c/g;
+			let str0 = "ab1c0";
+			/* 返回数组 */
+			console.log(str0.match(reg0)) /* ["ab1c"] */
+			/* \w === [0-9A-z] */
+			var reg = /\wbcd2/g; //var reg=/\w{4}/g;
+			let str = "abcd2";
+			console.log(str.match(reg)); /* ["abcd2"] */
+			/* \W === [^\w] */
+			var reg1 = /\W/g;
+			let str1 = "*bcd2";
+			console.log(str1.match(reg1)); /* ["*"] */
+			/* \d === [0-9] */
+			var reg2 = /\w\d/g;
+			let str2 = "ab2";
+			console.log(str2.match(reg2)); /* ["b2"] */
+			/* \s === [\t\n\r\v\f ]*/
+			/* \S === [\s] */
+			var reg3 = /\s/g;
+			let str3 = "ab 2";
+			console.log(str3.match(reg3)); /* [" "] */
+			/* \b === 单词边界 (一个单词有两个“”)*/
+			var reg4 = /\bvvv\b/g;
+			let str4 = "abc vvv";
+			console.log(str4.match(reg4)); /* ["vvv"] */
+			/* \B === 非单词边界 */
+			var reg5 = /\b1aBc\B/g;
+			let str5 = "abc 1aBc00";
+			console.log(str5.match(reg5)); /* ["1aBc"] */
+			/* \t === 有文本内容的\t */
+			var reg6 = /\t1aB/g;
+			let str6 = "abc\t1aBc00";
+			console.log(str6.match(reg6)); /* ["	1aB"] */
+			/* 所有 */
+			var reg7 = /[\d\D]/gm;
+			let str7 = "abc\t1aBc00";
+			console.log(str7.match(reg7)); /* ["a", "b", "c", "	", "1", "a", "B", "c", "0", "0"] */
+			/* . === [^\r\n] 查找单个字符，除了换行和行结束符。*/
+			var reg8 = /./g;
+			let str8 = "abc\t1aBc00";
+			console.log(str8.match(reg8)); /* ["a", "b", "c", "	", "1", "a", "B", "c", "0", "0"] */
+		</script>
+	</body>
+</html>

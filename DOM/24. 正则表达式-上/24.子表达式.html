@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>24.子表达式</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/* 子表达式-引用 */
+			let reg = /(\w)\1(\w)\2\1/g;    /* 规律匹配 xxyyx*/
+			let str = "aabba";
+			console.log(str.match(reg));
+		</script>
+	</body>
+</html>

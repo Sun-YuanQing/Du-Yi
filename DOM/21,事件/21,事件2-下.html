@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>21,事件1-上</title>
+		<style type="text/css">
+			.div2 {
+				width: 6.25rem;
+				height: 6.25rem;
+				background: #0FAEFF
+			}
+
+			li {
+				width: 11.25rem;
+				height: 1.25rem;
+				background: rgb(235, 200, 8);
+				margin-top: 2px;
+				list-style: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div2"></div>
+		<p>练习li事件</p>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<script type="text/javascript">
+			/* 封装事件 */
+			let div = document.getElementsByTagName("div")[0];
+			function addEvent(elem,type,handle){
+				if(elem.addEventListenter){
+					elem.addEventListenter(type,handle,false);
+					
+				}else if(elem.attachEvent){
+					elem.attachEvent("on"+type,function(){
+						handle.call(elem);
+					})
+				}else{
+					elem['on']+type=handle;
+				}
+			}
+			
+		</script>
+	</body>
+</html>
