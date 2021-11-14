@@ -4,37 +4,57 @@
 		<meta charset="utf-8">
 		<title></title>
 		<script>
-			const arr = [5,9,7,4,8,6,3,2,1,0];
+			const arr = [5, 9, 7, 4, 8, 6, 3, 2, 1, 0];
 
 			bubble(arr);
 
 			function bubble(arr) {
 				let n = arr.length - 1;
 				let num = 1;
-				while(true){
-					let last = 0; 
-					for(let i= 0; i < n;i++){
-						if(arr[i] > arr[i+1]){
-						//	console.log("第" + i + "次");
-							swap(arr, i, i+1) 
+				while (true) {
+					let last = 0;
+					for (let i = 0; i < n; i++) {
+						if (arr[i] > arr[i + 1]) {
+							//	console.log("第" + i + "次");
+							swap(arr, i, i + 1)
 							last = i;
 						}
 					}
-					console.log("第" + num + "次"+arr.toString());
+					console.log("第" + num + "次" + arr.toString());
 					++num;
 					n = last;
-					if(n == 0){
+					if (n == 0) {
 						break;
 					}
 				}
-				
-				
+
+
 			}
 
 			function swap(arr, i, j) {
 				let t = arr[i];
 				arr[i] = arr[j];
 				arr[j] = t;
+			}
+          console.log( binarySearch(arr,7));
+			//-------------
+			function binarySearch(a, t) {
+				let l = 0,
+					r = a.length - 1,
+					m;
+				while (l <= r) {
+					m = Math.floor((l + r) / 2);
+					if (a[m] == t) {
+						return m;
+
+					} else if (a[m] > t) {
+						r = m - 1;
+
+					} else {
+						l = m + 1
+					}
+				}
+			
 			}
 		</script>
 	</head>
