@@ -12,8 +12,13 @@
 			if(1+null){document.write((+null)+'--'+(+NaN)+'--'+(+"")+'--'+(+undefined))}
 			
 		document.write('----练习题：(window.foo||(window.foo=“asc”))=='+(window.foo||(window.foo='asc')))
-		
-		
+		var a=1;
+		function fu(){
+			var a =2;
+			console.log(this.a)
+			
+		}
+		fu();
 		</script>
 	</body>
 </html>

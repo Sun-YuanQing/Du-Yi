@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>排序</title>
+		<!-- <link rel="stylesheet" type="text/css" href="../css/flex.css" /> -->
+	</head>
+	<style type="text/css">
+		.f-row {
+			display: flex;
+			flex-direction: row;
+		}
+
+		.f-row-Hcenter {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+		}
+
+		.f-column {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.logo {
+			background-color: #007AFF;
+			color: #fff;
+			font-size: 22px;
+			margin: 0 10px;
+			padding: 20px 10px;
+			border-radius: 6px;
+		}
+
+		.box {
+			width: 500px;
+			border: 1px solid #000000;
+		}
+
+		.title-box .title {
+			font-weight: 600;
+			font-size: 28px;
+		}
+
+		.title-box .suptitle {
+			color: #C5C3C3;
+			font-size: 26px;
+		}
+
+		.text-overflow {
+			width: 300px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			margin-bottom: ;
+		}
+
+		.bottom {
+			margin-top: 20px;
+		}
+
+		.bottom-conten {
+			width: 380px;
+
+			font-weight: 600;
+			font-size: 23px;
+		}
+
+		.toPage {
+			color: #C5C3C3;
+			font-size: 22px;
+		}
+	</style>
+	<body>
+		<div class="box f-column">
+			<div class="top f-row-Hcenter">
+				<div class="logo">
+					logo
+				</div>
+				<div class="title-box">
+					<div class="title text-overflow">
+						标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题
+					</div>
+					<div class="suptitle text-overflow">
+						子标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题
+					</div>
+				</div>
+			</div>
+
+			<div class="bottom f-row">
+				<div class="bottom-conten">
+					内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+				</div>
+				<div class="toPage">
+					点击进入 >
+				</div>
+			</div>
+		</div>
+	</body>
+	<!-- <script type="text/javascript">
+		function ClassA (arg) { this.arg = arg; }
+		ClassA.prototype.x = 20; function ClassB(x) { this.x = x; } 
+		ClassB.prototype = new ClassA(30);
+		var a = new ClassA('xxxxx'), b = new ClassB(40); alert (a instanceof Object);
+		alert(a instanceof ClassA);
+		alert(b instanceof Object);
+		alert (b instanceof ClassA);
+		a.x = 30;
+		alert (a.x);
+		delete a.x
+		alert (a.x);
+		alert(b.x);
+		delete b.x;
+		alert (b.x); 
+	</script> -->
+	<script type="text/javascript">
+		function parseURL(cx){
+		    var a=location.href;
+		        a=a.replace("?","?&").split("&");
+		    var b="";
+		    for(i=1;i<a.length;i++){
+		        if(a[i].indexOf(cx+"=")==0){
+		            b=a[i].replace(cx+"=","");
+		        }
+		    }   
+		    return b;
+		}
+	var str=	parseURL("https://www.qq.com/query?id=news&name=search&ref=website");
+	console.log(str)
+	</script>
+</html>
